@@ -1,0 +1,26 @@
+# PROMPT > CONDA
+precmd_conda_info() {
+  if [[ -n $CONDA_PREFIX ]]; then
+      if [[ $(basename $CONDA_PREFIX) == "miniforge3" ]]; then
+        # Without this, it would display conda version
+        CONDA_ENV="base "
+      else
+        # For all environments that aren't (base)
+        CONDA_ENV="$(basename $CONDA_PREFIX) "
+      fi
+  # When no conda environment is active, don't show anything
+  else
+    CONDA_ENV=""
+  fi
+}
+precmd_functions+=( precmd_conda_info )
+
+# PROMPT > GIT
+function parse_git_branch() {
+    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/\1/p'
+}
+
+# Allow substitutions and expansions in the prompt
+setopt prompt_subst
+
+PROMPT='%B%F{green}$CONDA_ENV%f%b%B%F{blue}%n%f%b at %B%F{blue}%m%f%b in %B%F{blue}%~%f%b %B%F{magenta}'$(parse_git_branch)'%f%b'$'\n''  %B%F{blue}>%b%f '

@@ -1,0 +1,8 @@
+alias chaos='mosh ubuntu@192.18.145.238 -- sh -c "tmux new -As main"'
+alias dotfiles='/usr/bin/git --git-dir=/Users/shivam/.cfg/ --work-tree=/Users/shivam'
+alias pico="ampy -p /dev/tty.usbmodem101"
+alias keylime='mosh pi@keylime.local tmux attach'
+
+export THEOS=~/Developer/bin/theos
+export PICO_SDK_PATH=/Users/shivam/Developer/git/RP2040/pico-sdk
+
