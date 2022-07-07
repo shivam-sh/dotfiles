@@ -16,11 +16,11 @@ precmd_conda_info() {
 precmd_functions+=( precmd_conda_info )
 
 # PROMPT > GIT
-function parse_git_branch() {
-    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/\1/p'
-}
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats '%b'
 
 # Allow substitutions and expansions in the prompt
 setopt prompt_subst
 
-PROMPT='%B%F{green}$CONDA_ENV%f%b%B%F{blue}%n%f%b at %B%F{blue}%m%f%b in %B%F{blue}%~%f%b %B%F{magenta}'$(parse_git_branch)'%f%b'$'\n''  %B%F{blue}>%b%f '
+PROMPT='%B%F{green}$CONDA_ENV%f%b%B%F{blue}%n%f%b at %B%F{blue}%m%f%b in %B%F{blue}%~%f%b %B%F{magenta}${vcs_info_msg_0_}%f%b'$'\n''  %B%F{blue}>%b%f '
