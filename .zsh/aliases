@@ -1,14 +1,6 @@
-alias chaos='mosh ubuntu@192.18.145.238 -- sh -c "tmux new -As main"'
-alias dotfiles='/usr/bin/git --git-dir=/Users/shivam/.cfg/ --work-tree=/Users/shivam'
-alias pico="ampy -p /dev/tty.usbmodem101"
-alias keylime='mosh pi@keylime.local tmux attach'
+alias dot='/usr/bin/git --git-dir=$HOME/.config/.git/ --work-tree=$HOME'
 
-export THEOS=~/Developer/bin/theos
-export PICO_SDK_PATH=/Users/shivam/Developer/git/RP2040/pico-sdk
-
-
-# Bun
-[ -s "/Users/shivam/.bun/_bun" ] && source "/Users/shivam/.bun/_bun"
-export BUN_INSTALL="/Users/shivam/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
+alias gaia='mosh ubuntu@192.18.146.149 -- sh -c "tmux new -As main"'
+alias minotaur='mosh ubuntu@129.159.36.172 -- sh -c "tmux new -As main"'
+alias keylime='mosh pi@keylime.local -- sh -c "tmux new -As main"'
+alias keylime-ts='mosh pi@keylime -- sh -c "tmux new -As main"'
