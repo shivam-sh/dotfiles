@@ -29,7 +29,7 @@ dot push
 ## Creation
 - `git init --bare $HOME/.config/.git`
 - `alias dot='/usr/bin/git --git-dir=$HOME/.config/.git/ --work-tree=$HOME'`
-- `echo "alias dot='/usr/bin/git --git-dir=$HOME/.config/.git/ --work-tree=$HOME'" >> $HOME/.config/fish/aliases.fish`
+- `echo "alias dot='/usr/bin/git --git-dir=$HOME/.config/.git/ --work-tree=$HOME'" >> $HOME/.zsh/aliases`
 - `dot config --local status.showUntrackedFiles no`
 
 
