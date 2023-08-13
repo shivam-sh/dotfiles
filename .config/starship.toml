@@ -1,0 +1,47 @@
+format = """
+$username\
+$hostname\
+$directory\
+$conda\
+$git_branch\
+$line_break\
+$time\
+$character
+"""
+
+[username]
+show_always = true
+format = "[$user](bold green) "
+
+[hostname]
+format = "at [$hostname](bold green) "
+
+[directory]
+format = "in [$path](bold blue)[$read_only]($read_only_style) "
+
+[character]
+success_symbol = "  [❯](blue)"
+error_symbol = "  [❯](red)"
+vimcmd_symbol = "  [❮](green)"
+
+[git_branch]
+format = "[$branch]($style)"
+style = "bold purple"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "cyan"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[conda]
+symbol = ""
