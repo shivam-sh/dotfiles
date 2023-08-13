@@ -1,37 +1,36 @@
 # .dotfiles
 
 ## Usage
-use `dotfiles` to interact with the dotfiles repo on your system
+use `dot` to interact with the dotfile repo on your system
 ``` bash
-dotfiles status
-dotfiles add .vimrc
-dotfiles commit -m "Add vimrc"
-dotfiles add .bashrc
-dotfiles commit -m "Add bashrc"
-dotfiles push
+dot status
+dot add .vimrc
+dot commit -m "Add vimrc"
+dot add .bashrc
+dot commit -m "Add bashrc"
+dot push
 ```
 
 
 ## Installation
-- `echo ".cfg" >> .gitignore`
-- `git clone --bare <git-repo-url> $HOME/.cfg`
-- `alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-- `config config --local status.showUntrackedFiles no`
-- `config checkout`
+- `git clone --bare git@github.com:shivam-sh/dotfiles.git $HOME/.config/.git`
+- `alias dot='/usr/bin/git --git-dir=$HOME/.config/.git/ --work-tree=$HOME'`
+- `dot config --local status.showUntrackedFiles no`
+- `dot checkout`
   - ^ if fails rerun after backing up
   ``` bash
-  mkdir -p .config-backup && \
-  config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
-  xargs -I{} mv {} .config-backup/{}
+  mkdir -p .dot-backup && \
+  dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
+  xargs -I{} mv {} .dot-backup/{}
   ```
 
 
 
 ## Creation
-- `git init --bare $HOME/.cfg`
-- `alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-- `echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.zsh/aliases`
-- `dotfiles config --local status.showUntrackedFiles no`
+- `git init --bare $HOME/.config/.git`
+- `alias dot='/usr/bin/git --git-dir=$HOME/.config/.git/ --work-tree=$HOME'`
+- `echo "alias dot='/usr/bin/git --git-dir=$HOME/.config/.git/ --work-tree=$HOME'" >> $HOME/.config/fish/aliases.fish`
+- `dot config --local status.showUntrackedFiles no`
 
 
 
