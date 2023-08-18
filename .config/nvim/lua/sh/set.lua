@@ -19,6 +19,7 @@ vim.opt.undofile = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
+vim.cmd'colorscheme catppuccin'
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
